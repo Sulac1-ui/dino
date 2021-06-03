@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block title %}Register{% endblock %} {% block content %}
+<div class="container" style="font-family: 'Righteous', cursive;
+ background-color: rgba(82, 63, 36, 0.253);
+ height: 300px;
+ width: 500px;
+ border-radius: 3%;">
+    <div class="text-center">
+        <h1 class="title">Login</h1>
+        <hr/>
+    </div>
+
+    <div class="main-center">
+        <form class="text-sm-left" method="POST">
+            {% csrf_token %} {{form.as_p}}
+            <div class="form-group ">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+
+            {% if error %}
+            <hr>
+            <li style="color: brown;">{{error}}</li>
+            {% endif %}
+        </form>
+        <p><strong>Or,</strong>Don't have Account ?<a href="{% url 'ecommerceapp:signup'%}">Register here </a></p>
+    </div>
+</div>
+{%endblock%}

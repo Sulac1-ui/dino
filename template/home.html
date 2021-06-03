@@ -1,0 +1,26 @@
+{%extends 'base.html'%} {%block title%}Home{%endblock%} {% block content %}
+<div class="text-center">
+
+    <h1>Welcome........</h1>
+    <hr>
+</div>
+<div class="container">
+    <div class="row mt-lg-3">
+        {% for p in product_list%}
+        <div class="col md-5 ">
+            <div class="text-center mt-5">
+                <h3 style="color: rgb(9, 44, 44); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{p.title}}</h3>
+                <img src="{{p.image.url}}" width="300" , height="300">
+                <p class="mt-3"><strike>Rs{{p.marked_price}}/-</strike> &nbsp;&nbsp;&nbsp;Selling price:Rs{{p.selling_price}}/-</p>
+                <div class="dit-btn clearfix mt-lg-2">
+                    <a class="btn btn-primary" href="{% url 'ecommerceapp:addtocart' p.id%} "> Add to cart </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <a class="btn btn-secondary" href=""> Like this</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+</div>
+{%endblock%}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block title %}Register{% endblock %} {% block content %}
+<div class="container" style="font-family: 'Righteous', cursive;
+ background-color: rgb(157 135 114);
+ height: 550px;
+ width: 550px;
+ border-radius: 5%;">
+    <div class="text-center">
+        <h1 class="title">Register</h1>
+        <hr/>
+    </div>
+
+    <div class="main-center">
+        <form class="text-sm-left" method="POST">
+            {% csrf_token %} {{form.as_p}}
+            <div class="form-group ">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
+        <p><span>Already have an Account</span> &nbsp;
+            <a href="{%url 'ecommerceapp:login'%}"> <b>Login</b> </a>
+        </p>
+    </div>
+</div>
+{%endblock%}
